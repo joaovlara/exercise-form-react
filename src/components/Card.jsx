@@ -1,19 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
-const EditableCard = styled.div`
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  background-color: yellow;
-`;
-
-const EditableText = styled.div`
-  outline: none;
-  min-height: 20px;
-  font-family: sans-serif;
-  font-size: 16px;
-`;
 
 function CardEdit() {
   const [text, setText] = useState('Untitled');
@@ -23,14 +8,27 @@ function CardEdit() {
   };
 
   return (
-    <EditableCard>
-      <EditableText
+    <div
+      style={{
+        padding: '10px',
+        borderRadius: '5px',
+        marginBottom: '10px',
+        backgroundColor: 'yellow',
+      }}
+    >
+      <div
         contentEditable
-        onInput={handleTextChange}
+        style={{
+          outline: 'none',
+          minHeight: '20px',
+          fontFamily: 'sans-serif',
+          fontSize: '16px',
+        }}
+        onClick={handleTextChange}
       >
         {text}
-      </EditableText>
-    </EditableCard>
+      </div>
+    </div>
   );
 }
 
